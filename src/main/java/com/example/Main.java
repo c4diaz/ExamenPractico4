@@ -71,6 +71,8 @@ public class Main {
 		System.out.println("Salario promedio de las Mujeres: " + salarioPromedioMujeres);
 		System.out.println("Salario promedio de Otros Generos: " + salarioPromedioOtros);
 
+		
+		
 		// creacion de variables por Departamento
 		System.out.println("\nSalario Promedio Por Departamento: ");
 		double sumatoriaSalariosInformatica = 0.0;
@@ -131,7 +133,7 @@ public class Main {
 			Estudiante.builder().nombre("Martin").primerApellido(" Castro ").segundoApellido(" Gomez ")
 					.genero(Genero.HOMBRE).facultad(Facultad.MEDICINA).totalAsignaturasMatriculadas(6).build(),
 			Estudiante.builder().nombre("Luisa").primerApellido(" Pinto ").segundoApellido(" Diaz ")
-					.genero(Genero.OTRO).facultad(Facultad.INGENIERIA).totalAsignaturasMatriculadas(3).build(),
+					.genero(Genero.MUJER).facultad(Facultad.INGENIERIA).totalAsignaturasMatriculadas(3).build(),
 		};
 		
 		
@@ -145,7 +147,86 @@ public class Main {
     		}
     	}
 		
+		
+		
+		
+		// rama_5
+				//Array que permita almacenar tanto objetos empleados como objetos estudiantes
+		System.out.println("\n\n rama_5 Array Estudiantes Mujeres con asignaturas >= al promedio de facultades: \n");
+		
+		Estudiante[] students = {
+		Estudiante.builder().nombre("Lina").primerApellido(" Caceres ").segundoApellido(" Perez ")
+			.genero(Genero.MUJER).facultad(Facultad.IDIOMAS).totalAsignaturasMatriculadas(4).build(),
+		Estudiante.builder().nombre("Pedro").primerApellido(" Torres ").segundoApellido(" Gil ")
+			.genero(Genero.HOMBRE).facultad(Facultad.INGENIERIA).totalAsignaturasMatriculadas(6).build(),
+		Estudiante.builder().nombre("Melina").primerApellido(" Castro ").segundoApellido(" Gomez ")
+			.genero(Genero.MUJER).facultad(Facultad.MEDICINA).totalAsignaturasMatriculadas(6).build(),
+		Estudiante.builder().nombre("Fernanda").primerApellido(" Pinto ").segundoApellido(" Diaz ")
+			.genero(Genero.MUJER).facultad(Facultad.INGENIERIA).totalAsignaturasMatriculadas(3).build(),
+		Estudiante.builder().nombre("Lina").primerApellido(" Vargas ").segundoApellido(" Sanchez")
+			.genero(Genero.MUJER).facultad(Facultad.IDIOMAS).totalAsignaturasMatriculadas(8).build(),
+		Estudiante.builder().nombre("Pedro").primerApellido(" Maldonado ").segundoApellido(" Tamayo ")
+			.genero(Genero.HOMBRE).facultad(Facultad.INGENIERIA).totalAsignaturasMatriculadas(9).build(),
+		Estudiante.builder().nombre("Sergio").primerApellido(" Iglesias ").segundoApellido(" Camavinga ")
+			.genero(Genero.HOMBRE).facultad(Facultad.MEDICINA).totalAsignaturasMatriculadas(3).build(),
+		Estudiante.builder().nombre("Patricia").primerApellido(" Pinto ").segundoApellido(" Quiroz ")
+			.genero(Genero.MUJER).facultad(Facultad.INGENIERIA).totalAsignaturasMatriculadas(3).build(),
+};
+		
+		
+		
+		
+		for (Estudiante mujeres : students) {
+			if (mujeres.getGenero().equals(Genero.MUJER)) {
+				System.out.println("Estudiantes Mujeres :" + mujeres.getNombre() + " " + Genero.MUJER + " " );
+			} else  {
+				;
+			} 
+	
+			
+			
+			//Creacion de variables por Facultad
+		
+			double sumaAsignaturasIngenieria = 0.0;
+			double sumaAsignaturasMedicina = 0.0;
+			double sumaAsignaturasIdiomas = 0.0;
 
+			int totalIngenieria = 0;
+			int totalMedicina = 0;
+			int totalIdiomas = 0;
+
+			double AsignaturasPromedioIngenieria = 0.0;
+			double AsignaturasPromedioMedicina = 0.0;
+			double AsignaturasPromedioIdiomas = 0.0;
+			
+			
+		
+			for (Estudiante estu : students) {
+				if (estu.getGenero().equals(Genero.MUJER)) {
+					sumaAsignaturasIngenieria = estu.getTotalAsignaturasMatriculadas();
+					totalIngenieria++;
+				} else if (estu.getGenero().equals(Genero.MUJER)) {
+					sumaAsignaturasMedicina += estu.getTotalAsignaturasMatriculadas();
+					totalMedicina++;
+				} else  {
+					sumaAsignaturasIdiomas += estu.getTotalAsignaturasMatriculadas();
+					totalIdiomas++;
+				}
+			}
+			
+		
+			AsignaturasPromedioIngenieria = sumaAsignaturasIngenieria / totalIngenieria;
+			AsignaturasPromedioMedicina = sumaAsignaturasMedicina / totalMedicina;
+			AsignaturasPromedioIdiomas = sumaAsignaturasIdiomas / totalIdiomas;
+		
+			
+			
+			System.out.println("Asignaturas promedio de Ingenieria: " + AsignaturasPromedioIngenieria);
+			System.out.println("Asignaturas promedio de Medicina: "  + AsignaturasPromedioMedicina);
+			System.out.println("Asignaturas promedio de Idiomas: " + AsignaturasPromedioIdiomas);
+		
+				
+		
+		}
 	}
-
 }
