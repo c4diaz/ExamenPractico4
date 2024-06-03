@@ -4,7 +4,7 @@ public class Main {
 
 	public static void main(String[] args) {
 
-		// Inicio rama_2
+		// rama_2
 
 		Empleado[] empleados = {
 				Empleado.builder().nombre("Carlos ").primerApellido(" Diaz ").segundoApellido(" Muñoz ")
@@ -106,11 +106,44 @@ public class Main {
 		System.out.println("Salario promedio del Dpto de Compras: " + salarioPromedioCompras);
 		System.out.println("Salario promedio del Dpt de Contabilidad: " + salarioPromedioContabilidad);
 
-		// Inicio Rama_3
+		
+		
+		// rama_4
+		//Array que permita almacenar tanto objetos empleados como objetos estudiantes
+		System.out.println("\nArray de Empleados y Estudiantes: ");
+		
+		
+		Object[] objetos = {
+				
+			Empleado.builder().nombre("Carlos ").primerApellido(" Diaz ").segundoApellido(" Muñoz ")
+					.genero(Genero.HOMBRE).departamento(Departamento.COMPRAS).salario(4500).build(),
+			Empleado.builder().nombre("Tamara ").primerApellido(" Sanchez").segundoApellido(" Diaz ")
+					.genero(Genero.MUJER).departamento(Departamento.INFORMATICA).salario(4200).build(),
+			Empleado.builder().nombre("Marly ").primerApellido(" Perez ").segundoApellido(" Arias ")
+					.genero(Genero.MUJER).departamento(Departamento.CONTABILIDAD).salario(3800).build(),
+			Empleado.builder().nombre("Pablo ").primerApellido(" Collado ").segundoApellido(" Jerez ")
+					.genero(Genero.HOMBRE).departamento(Departamento.COMPRAS).salario(4800).build(),
+				
+			Estudiante.builder().nombre("Cristina").primerApellido(" Caceres ").segundoApellido(" Perez ")
+					.genero(Genero.MUJER).facultad(Facultad.IDIOMAS).totalAsignaturasMatriculadas(4).build(),
+			Estudiante.builder().nombre("Camilo").primerApellido(" Maldonado ").segundoApellido(" Gil ")
+					.genero(Genero.HOMBRE).facultad(Facultad.INGENIERIA).totalAsignaturasMatriculadas(6).build(),
+			Estudiante.builder().nombre("Martin").primerApellido(" Castro ").segundoApellido(" Gomez ")
+					.genero(Genero.HOMBRE).facultad(Facultad.MEDICINA).totalAsignaturasMatriculadas(6).build(),
+			Estudiante.builder().nombre("Luisa").primerApellido(" Pinto ").segundoApellido(" Diaz ")
+					.genero(Genero.OTRO).facultad(Facultad.INGENIERIA).totalAsignaturasMatriculadas(3).build(),
+		};
 		
 		
 		
 		
+		for(Object o : objetos) {
+    		if(o instanceof Empleado empleado) {
+    			System.out.println("Empleados:"+empleado.getNombre());} 
+    		else if (o  instanceof Estudiante estudiante) {
+    			System.out.println("Estudiantes:" + estudiante.getNombre());
+    		}
+    	}
 		
 
 	}
