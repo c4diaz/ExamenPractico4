@@ -18,6 +18,7 @@ public class Persona {
 	private String primerApellido;
 	private String segundoApellido;
 	private Genero genero;
+
 	
 	
 	
